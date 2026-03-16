@@ -1192,6 +1192,10 @@ body {
   .nav-toggle {
     display: block;
   }
+
+  .lang-tabs {
+    right: 50px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -1220,8 +1224,8 @@ body {
 
 <!-- Language Tabs -->
 <div class="lang-tabs">
-  <button class="lang-tab" onclick="switchLang('ja')">日本語</button>
-  <button class="lang-tab active" onclick="switchLang('tc')">中文</button>
+  <button class="lang-tab" data-lang="ja" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-tab active" data-lang="tc" onclick="switchLang('tc')">中文</button>
 </div>
 
 <!-- Navigation -->
@@ -1594,78 +1598,293 @@ body {
 
 <!-- Traditional Chinese Content -->
 <div class="lang-content active" id="lang-tc">
-<section class="tc-section" id="tc-section" style="display:block;">
+
+<!-- About -->
+<section class="section about" id="about-tc">
   <div class="container">
-    <div class="tc-content">
-      <p class="section-label" style="color: var(--color-accent);">中文版 Profile</p>
-      <h2>坂本 志於里（Shiori Sakamoto）小里</h2>
-
-      <div class="tc-intro">
-        <p class="tagline">⭐ 觀光、商業、娛樂之跨國企畫推動與執行製作</p>
-        <p class="tagline">⭐ 熟悉日本與臺灣市場之現場協調與公關</p>
+    <div class="reveal">
+      <p class="section-label">About</p>
+      <h2 class="section-title">個人簡介</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>茨城筑波人，畢業於東京學藝大學。曾於旅行社擔任企畫與出團領隊，嗣後，於人力資源公司負責海外經驗人才就業服務。現為觀光、娛樂、教育領域之自由接案者，提供從企畫、業務、PR 到專案管理的一條龍服務。</p>
+        <p>持有臺灣就業金卡，活躍於臺北與東京兩地，熱愛臺灣，深諳日臺文化、商業習慣與產業結構之差異，戮力擔任兩地橋樑，具超強的專案執行力。</p>
+        <p>身為理解日臺雙方文化、商業慣例與產業結構的「橋樑」，以優異的專案執行力為核心優勢。</p>
       </div>
-
-      <div class="tc-quals">
-        <span class="tc-qual">臺灣就業金卡（Gold Card）</span>
-        <span class="tc-qual">日本秘書技能檢定 準一級</span>
-        <span class="tc-qual">日本旅行業務管理者國家考試</span>
-        <span class="tc-qual">日本行程管理線控主任國考</span>
-        <span class="tc-qual">教師一級證照（英語・體育）</span>
+      <div class="about-highlights reveal">
+        <div class="about-highlight-item">
+          <div class="highlight-icon">🌏</div>
+          <div class="highlight-content">
+            <h4>日臺雙據點</h4>
+            <p>以東京與臺北為據點，每月往返臺灣。充分掌握當地氛圍與商業文化後推動專案。</p>
+          </div>
+        </div>
+        <div class="about-highlight-item">
+          <div class="highlight-icon">🎵</div>
+          <div class="highlight-content">
+            <h4>音樂 × 娛樂</h4>
+            <p>J-POP 藝人臺灣發展、歌曲製作、音樂節營運等，在音樂產業擁有深厚人脈。</p>
+          </div>
+        </div>
+        <div class="about-highlight-item">
+          <div class="highlight-icon">🤝</div>
+          <div class="highlight-content">
+            <h4>從企畫到執行</h4>
+            <p>從市場調查、公關策略到現場陪同、營運管理，一站式全方位服務。</p>
+          </div>
+        </div>
+        <div class="about-highlight-item">
+          <div class="highlight-icon">🎯</div>
+          <div class="highlight-content">
+            <h4>關係構建力</h4>
+            <p>不止於短期專案，持續建立能衍生下一個企畫與合作案的信任關係。</p>
+          </div>
+        </div>
       </div>
-
-      <h3>個人簡介</h3>
-      <p>茨城筑波人，畢業於東京學藝大學。曾於旅行社擔任企畫與出團領隊，嗣後，於人力資源公司負責海外經驗人才就業服務。現為觀光、娛樂、教育領域之自由接案者，提供從企畫、業務、PR 到專案管理的一條龍服務。</p>
-      <p>持有臺灣就業金卡，活躍於臺北與東京兩地，熱愛臺灣，深諳日臺文化、商業習慣與產業結構之差異，戮力擔任兩地橋樑，具超強的專案執行力。</p>
-
-      <h3>經歷：自由工作者 6 年</h3>
-      <div class="tc-career-item">
-        <span class="year">2025 年～</span>
-        <div class="detail"><strong>株式會社 Promo Infinity</strong><span>廣告代理公司 海外事業部總監</span></div>
-      </div>
-      <div class="tc-career-item">
-        <span class="year">2021 年～</span>
-        <div class="detail"><strong>株式會社 MUSIC FOR MUSIC</strong><span>音樂製作公司 亞洲行銷部門</span></div>
-      </div>
-      <div class="tc-career-item">
-        <span class="year">2023 — 2025 年</span>
-        <div class="detail"><strong>Now Do 株式會社</strong><span>與前日本國足隊長本田圭佑共同創立「4v4」足球</span></div>
-      </div>
-      <div class="tc-career-item">
-        <span class="year">2020 — 2022 年</span>
-        <div class="detail"><strong>株式會社 WOWOW</strong><span>事業局事業部</span></div>
-      </div>
-      <div class="tc-career-item">
-        <span class="year">2020 — 2023 年</span>
-        <div class="detail"><strong>株式會社 AOI Pro.</strong><span>社長室 人才戰略部</span></div>
-      </div>
-
-      <h3>經歷：企業任職</h3>
-      <div class="tc-career-item">
-        <span class="year">2018 — 2020 年</span>
-        <div class="detail"><strong>株式會社 Dive</strong><span>海外經驗人才就業服務的新部門</span></div>
-      </div>
-      <div class="tc-career-item">
-        <span class="year">2014 — 2018 年</span>
-        <div class="detail"><strong>Nissin Travel Service Co.Ltd.</strong><span>教育旅行之行程規劃、業務開發及領隊</span></div>
-      </div>
-
-      <h3>業務內容</h3>
-      <ul class="tc-service-list">
-        <li>市調／研究／PR／公關之企畫與執行</li>
-        <li>臺灣隨行支援／在地協調</li>
-        <li>新事業之事業計畫制定與執行支援</li>
-        <li>KOL／網紅經紀</li>
-        <li>音樂和樂曲製作專案</li>
-      </ul>
-
-      <h3>優勢</h3>
-      <p><strong>1. 日本音樂產業之人脈網與在臺拓展經驗</strong></p>
-      <p><strong>2. PR／行銷實務</strong> — 長年在觀光、娛樂、教育等多元產業累積經驗。國內外媒體曝光與話題操作。</p>
-      <p><strong>3. 新創事業之策略設計到執行的領導力</strong></p>
-      <p><strong>4. 累積雙方信任之橋接能力</strong> — 向臺方清晰傳達日方真實意向與溫度感。連綿衍生後續合作專案，不止步於短期效果。協調網紅／藝人、地方政府、企業、製作團隊等不同立場之信任關係。</p>
     </div>
   </div>
 </section>
+
+<!-- Services -->
+<section class="section services" id="services-tc">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">業務內容</h2>
+      <p class="section-subtitle">在以日本與臺灣為核心的觀光、娛樂市場中，支援企業、地方政府、創作者與藝人。提供結合市場理解與在地人脈的專業服務。</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3 class="service-title">臺灣市場調查・<br>PR・行銷</h3>
+        <p class="service-desc">從臺灣市場調研到公關策略的策劃與執行、行銷方案的設計。運用與當地媒體及KOL的關係，實現高效推進。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3 class="service-title">臺灣隨行支援・<br>在地協調</h3>
+        <p class="service-desc">視察規劃、現地調查到隨行陪同，全程一條龍服務。臺灣入境觀光推廣及企業・地方政府視察事業。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3 class="service-title">新事業<br>計畫策定・執行支援</h3>
+        <p class="service-desc">從事業計畫策定到上線、營運管理。擁有本田圭佑「4v4」立案實績的事業推進力。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <h3 class="service-title">KOL／網紅<br>選角</h3>
+        <p class="service-desc">日臺雙市場的KOL・網紅從選角到指導一手包辦。為品牌挑選最佳人選。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">05</div>
+        <h3 class="service-title">活動企畫・<br>POP UP 營運</h3>
+        <p class="service-desc">日本・臺灣活動企畫營運、音樂節營運、POP UP 推廣。擁有 BEAMS、TENTIAL 等合作實績。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">06</div>
+        <h3 class="service-title">歌曲製作・<br>音樂專案</h3>
+        <p class="service-desc">以 J-POP 為核心，從作詞・作曲・編曲・音樂製作到配樂，提供全方位音樂製作支援。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Works -->
+<section class="section works" id="works-tc">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Track Record</p>
+      <h2 class="section-title">精選實績</h2>
+      <p class="section-subtitle">觀光、娛樂、商業領域中日臺跨境的主要實績。</p>
+    </div>
+    <div class="works-grid">
+      <div class="work-card reveal">
+        <div class="work-card-image">
+          <img src="images/profile2.png" alt="高瀨統也 Fan Meeting Asia Tour">
+        </div>
+        <div class="work-number">01 — Artist</div>
+        <h3 class="work-title">藝人臺灣隨行支援</h3>
+        <p class="work-desc">活動企畫、寫真集及MV拍攝、與當地藝人的合作協調。</p>
+        <div class="work-brands">
+          <span class="work-brand">佐藤健</span>
+          <span class="work-brand">濱崎步</span>
+          <span class="work-brand">高瀨統也</span>
+          <span class="work-brand">松浦航大</span>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-number">02 — Government</div>
+        <h3 class="work-title">企業・地方政府臺灣視察事業</h3>
+        <p class="work-desc">視察規劃、現地調查到隨行陪同，全程一條龍服務。臺灣入境觀光推廣。</p>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-number">03 — Event</div>
+        <h3 class="work-title">活動企畫・營運</h3>
+        <p class="work-desc">日本・臺灣活動企畫營運。全國小學生足球大會「4v4 JAPAN CUP」的創立及臺灣拓展。</p>
+        <div class="work-brands">
+          <span class="work-brand">4v4 JAPAN CUP</span>
+          <span class="work-brand">Now Do（本田圭佑）</span>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-number">04 — Festival</div>
+        <h3 class="work-title">音樂節營運</h3>
+        <p class="work-desc">企畫營運、藝人邀約。音樂節製作實績。</p>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-number">05 — KOL</div>
+        <h3 class="work-title">KOL／網紅選角</h3>
+        <p class="work-desc">日臺雙市場的KOL選角及指導支援。</p>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-number">06 — Pop-up</div>
+        <h3 class="work-title">臺灣 POP UP／推廣</h3>
+        <p class="work-desc">品牌臺灣市場拓展的 POP UP 企畫、營運及推廣。</p>
+        <div class="work-brands">
+          <span class="work-brand">TENTIAL</span>
+          <span class="work-brand">BEAMS</span>
+          <span class="work-brand">Lumier</span>
+          <span class="work-brand">9090</span>
+          <span class="work-brand">SEVEN x SEVEN</span>
+          <span class="work-brand">ONE OK ROCK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Media -->
+<section class="section media" id="media-tc">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Media</p>
+      <h2 class="section-title">相關影片</h2>
+      <p class="section-subtitle">相關影像內容。</p>
+    </div>
+    <div class="media-grid">
+      <div class="media-item reveal">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/xfkwEkTizvk" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="media-item reveal">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/lDlVzAWnxAw" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="media-item reveal">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/7N4k0QZnGZY" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="media-item reveal">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/uYUqK-GorGc" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Career -->
+<section class="section career" id="career-tc">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Career</p>
+      <h2 class="section-title">職業經歷</h2>
+    </div>
+    <div class="career-content">
+      <div class="reveal">
+        <div class="career-column-title">自由工作者 — 第 6 年</div>
+        <div class="career-item">
+          <span class="career-year">2025 ~</span>
+          <div class="career-detail">
+            <h4>株式會社 Promo Infinity</h4>
+            <p>海外事業部 統括總監</p>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-year">2021 ~</span>
+          <div class="career-detail">
+            <h4>株式會社 MUSIC FOR MUSIC</h4>
+            <p>音樂製作公司 亞洲行銷部門</p>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-year">2023 — 2025</span>
+          <div class="career-detail">
+            <h4>Now Do 株式會社</h4>
+            <p>與本田圭佑共同創立新事業「4v4」</p>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-year">2020 — 2022</span>
+          <div class="career-detail">
+            <h4>株式會社 WOWOW</h4>
+            <p>事業局事業部 活動企畫</p>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-year">2020 — 2023</span>
+          <div class="career-detail">
+            <h4>株式會社 AOI Pro.</h4>
+            <p>社長室 人才戰略部</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="career-column-title">企業任職</div>
+        <div class="career-item">
+          <span class="career-year">2018 — 2020</span>
+          <div class="career-detail">
+            <h4>株式會社 Dive</h4>
+            <p>海外經驗人才就業服務的創設</p>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-year">2014 — 2018</span>
+          <div class="career-detail">
+            <h4>日新航空服務株式會社</h4>
+            <p>教育旅行之企畫・業務・帶團</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strengths -->
+<section class="section strengths" id="strengths-tc">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Strengths</p>
+      <h2 class="section-title">核心優勢</h2>
+    </div>
+    <div class="strengths-grid reveal">
+      <div class="strength-card">
+        <div class="strength-num">01</div>
+        <h3 class="strength-title">音樂產業的<br>專業性與人脈網絡</h3>
+        <p class="strength-desc">在日臺雙方音樂產業擁有專業知識與人脈。掌握藝人海外發展所需的當地資源。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">02</div>
+        <h3 class="strength-title">PR・行銷<br>實務能力</h3>
+        <p class="strength-desc">在觀光、娛樂、教育等多元產業累積的專業經驗。國內外媒體曝光與話題營造的設計。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">03</div>
+        <h3 class="strength-title">事業視角的<br>專案推進力</h3>
+        <p class="strength-desc">從策略設計到執行的領導力。新創事業從創立到營運的一條龍服務。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">04</div>
+        <h3 class="strength-title">在地<br>關係構建力</h3>
+        <p class="strength-desc">不止於短期專案，持續建立能衍生下一個企畫與合作案的信任關係。協調不同立場的利害關係人之間的信任。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div><!-- /lang-tc -->
 
 <!-- Contact CTA -->
@@ -1726,7 +1945,7 @@ function switchLang(lang) {
   document.querySelectorAll('.lang-tab').forEach(tab => tab.classList.remove('active'));
   document.querySelectorAll('.lang-content').forEach(c => c.classList.remove('active'));
   document.getElementById('lang-' + lang).classList.add('active');
-  document.querySelector('.lang-tab[onclick*="' + lang + '"]').classList.add('active');
+  document.querySelector('.lang-tab[data-lang="' + lang + '"]').classList.add('active');
   // Switch hero text
   document.querySelectorAll('.hero-lang').forEach(el => el.style.display = 'none');
   const heroLang = document.querySelector('.hero-lang-' + lang);
