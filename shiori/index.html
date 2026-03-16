@@ -951,12 +951,13 @@ body {
   letter-spacing: 0.08em;
   padding: 7px 18px;
   border: 1px solid var(--color-border);
-  background: rgba(250, 248, 245, 0.85);
+  background: rgba(250, 248, 245, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   color: var(--color-text-light);
   cursor: pointer;
   transition: all 0.3s;
+  opacity: 0.7;
 }
 
 .lang-tab:first-child {
@@ -972,11 +973,15 @@ body {
   background: var(--color-accent);
   border-color: var(--color-accent);
   color: #fff;
+  opacity: 1;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(196, 100, 58, 0.3);
 }
 
 .lang-tab:not(.active):hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
+  opacity: 1;
 }
 
 .lang-content {
@@ -1215,8 +1220,8 @@ body {
 
 <!-- Language Tabs -->
 <div class="lang-tabs">
-  <button class="lang-tab active" onclick="switchLang('ja')">日本語</button>
-  <button class="lang-tab" onclick="switchLang('tc')">中文</button>
+  <button class="lang-tab" onclick="switchLang('ja')">日本語</button>
+  <button class="lang-tab active" onclick="switchLang('tc')">中文</button>
 </div>
 
 <!-- Navigation -->
@@ -1245,21 +1250,43 @@ body {
       <p class="hero-label">Cross-Border Producer &amp; Coordinator</p>
       <h1 class="hero-name-en">Shiori Sakamoto</h1>
       <p class="hero-name-ja">坂本 志於里（小里）</p>
-      <p class="hero-tagline">
-        日本と台湾、両市場を理解した<br>
-        <strong>「現場型」企画・コーディネーター</strong>
-      </p>
-      <p class="hero-tagline">
-        観光・商業・エンタメ領域における<br>
-        <strong>クロスボーダー企画を実行へ導くプロデューサー</strong>
-      </p>
-      <div class="hero-divider"></div>
-      <div class="hero-quals">
-        <span class="hero-qual">台湾ゴールドカード保持</span>
-        <span class="hero-qual">旅行業務取扱管理者（総合）</span>
-        <span class="hero-qual">秘書検定 準一級</span>
-        <span class="hero-qual">旅程管理主任者</span>
-        <span class="hero-qual">教員免許（英語・保健体育）</span>
+      <!-- Japanese hero text -->
+      <div class="hero-lang hero-lang-ja" style="display:none;">
+        <p class="hero-tagline">
+          日本と台湾、両市場を理解した<br>
+          <strong>「現場型」企画・コーディネーター</strong>
+        </p>
+        <p class="hero-tagline">
+          観光・商業・エンタメ領域における<br>
+          <strong>クロスボーダー企画を実行へ導くプロデューサー</strong>
+        </p>
+        <div class="hero-divider"></div>
+        <div class="hero-quals">
+          <span class="hero-qual">台湾ゴールドカード保持</span>
+          <span class="hero-qual">旅行業務取扱管理者（総合）</span>
+          <span class="hero-qual">秘書検定 準一級</span>
+          <span class="hero-qual">旅程管理主任者</span>
+          <span class="hero-qual">教員免許（英語・保健体育）</span>
+        </div>
+      </div>
+      <!-- Chinese hero text -->
+      <div class="hero-lang hero-lang-tc">
+        <p class="hero-tagline">
+          熟悉日本與臺灣市場之<br>
+          <strong>「現場型」跨國企畫與協調</strong>
+        </p>
+        <p class="hero-tagline">
+          觀光、商業、娛樂領域之<br>
+          <strong>跨國企畫推動與執行製作人</strong>
+        </p>
+        <div class="hero-divider"></div>
+        <div class="hero-quals">
+          <span class="hero-qual">臺灣就業金卡（Gold Card）</span>
+          <span class="hero-qual">日本秘書技能檢定 準一級</span>
+          <span class="hero-qual">日本旅行業務管理者國家考試</span>
+          <span class="hero-qual">日本行程管理線控主任國考</span>
+          <span class="hero-qual">教師一級證照（英語・體育）</span>
+        </div>
       </div>
     </div>
     <div class="hero-visual">
@@ -1275,7 +1302,7 @@ body {
 </section>
 
 <!-- Japanese Content -->
-<div class="lang-content active" id="lang-ja">
+<div class="lang-content" id="lang-ja">
 
 <!-- About -->
 <section class="section about" id="about">
@@ -1566,7 +1593,7 @@ body {
 </div><!-- /lang-ja -->
 
 <!-- Traditional Chinese Content -->
-<div class="lang-content" id="lang-tc">
+<div class="lang-content active" id="lang-tc">
 <section class="tc-section" id="tc-section" style="display:block;">
   <div class="container">
     <div class="tc-content">
@@ -1700,6 +1727,10 @@ function switchLang(lang) {
   document.querySelectorAll('.lang-content').forEach(c => c.classList.remove('active'));
   document.getElementById('lang-' + lang).classList.add('active');
   document.querySelector('.lang-tab[onclick*="' + lang + '"]').classList.add('active');
+  // Switch hero text
+  document.querySelectorAll('.hero-lang').forEach(el => el.style.display = 'none');
+  const heroLang = document.querySelector('.hero-lang-' + lang);
+  if (heroLang) heroLang.style.display = '';
   window.scrollTo({ top: document.getElementById('hero').offsetTop, behavior: 'smooth' });
 }
 
