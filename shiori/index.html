@@ -624,6 +624,73 @@ body {
 }
 
 /* ============================
+   Work Card Image
+   ============================ */
+.work-card-image {
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.work-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+/* ============================
+   Media / Videos
+   ============================ */
+.media {
+  background: var(--color-bg-warm);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.media-item {
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+}
+
+.media-item .video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+.media-item .video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.media-item .video-caption {
+  padding: 16px 20px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+@media (max-width: 600px) {
+  .media-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================
    Career Timeline
    ============================ */
 .career {
@@ -1160,6 +1227,7 @@ body {
       <li><a href="#about">About</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#works">Works</a></li>
+      <li><a href="#media">Media</a></li>
       <li><a href="#career">Career</a></li>
       <li><a href="#strengths">Strengths</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -1309,6 +1377,9 @@ body {
     </div>
     <div class="works-grid">
       <div class="work-card reveal">
+        <div class="work-card-image">
+          <img src="images/profile2.png" alt="高瀬統也 Fan Meeting Asia Tour">
+        </div>
         <div class="work-number">01 — Artist</div>
         <h3 class="work-title">アーティスト台湾アテンド</h3>
         <p class="work-desc">イベント企画、写真集やMVの撮影、現地タレントとのコラボコーディネート。</p>
@@ -1354,6 +1425,39 @@ body {
           <span class="work-brand">9090</span>
           <span class="work-brand">SEVEN x SEVEN</span>
           <span class="work-brand">ONE OK ROCK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Media -->
+<section class="section media" id="media">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Media</p>
+      <h2 class="section-title">Featured Videos</h2>
+      <p class="section-subtitle">関連する映像コンテンツ。</p>
+    </div>
+    <div class="media-grid">
+      <div class="media-item reveal">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/xfkwEkTizvk" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="media-item reveal">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/lDlVzAWnxAw" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="media-item reveal">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/7N4k0QZnGZY" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+      <div class="media-item reveal">
+        <div class="video-wrapper">
+          <iframe src="https://www.youtube.com/embed/uYUqK-GorGc" title="YouTube video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
         </div>
       </div>
     </div>
