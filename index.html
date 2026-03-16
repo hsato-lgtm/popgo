@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shiori Sakamoto | 坂本 志於里 — Cross-Border Producer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-bg: #FAF8F5;
+  --color-bg-warm: #F3EDE6;
+  --color-bg-dark: #1A1714;
+  --color-text: #2C2520;
+  --color-text-light: #8A7E74;
+  --color-text-inverse: #FAF8F5;
+  --color-accent: #C4643A;
+  --color-accent-soft: #E8A882;
+  --color-accent-deep: #9B3D1A;
+  --color-gold: #B89B6A;
+  --color-gold-light: #D4C4A0;
+  --color-border: #DDD5CB;
+  --color-border-light: #EDE8E2;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body-ja: 'Noto Sans JP', sans-serif;
+  --font-body-tc: 'Noto Sans TC', sans-serif;
+  --font-body-en: 'DM Sans', sans-serif;
+  --section-padding: clamp(60px, 10vw, 120px);
+  --container-width: 1200px;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body-ja);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.8;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+}
+
+/* ============================
+   Navigation
+   ============================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.nav.scrolled {
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 14px 0;
+  box-shadow: 0 1px 0 var(--color-border-light);
+}
+
+.nav-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 60px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-body-en);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: color 0.3s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-lang {
+  font-family: var(--font-body-en);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  padding: 6px 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  color: var(--color-text-light);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.nav-lang:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Mobile Nav Toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 28px;
+  height: 20px;
+  position: relative;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--color-text);
+  position: absolute;
+  left: 0;
+  transition: all 0.3s;
+}
+
+.nav-toggle span:nth-child(1) { top: 0; }
+.nav-toggle span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.nav-toggle span:nth-child(3) { bottom: 0; }
+
+/* ============================
+   Hero
+   ============================ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(196, 100, 58, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 140px clamp(20px, 4vw, 60px) var(--section-padding);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-label {
+  font-family: var(--font-body-en);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.3s forwards;
+}
+
+.hero-name-en {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 4.5vw, 4.2rem);
+  font-weight: 300;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.5s forwards;
+}
+
+.hero-name-ja {
+  font-family: var(--font-body-ja);
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  color: var(--color-text-light);
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.65s forwards;
+}
+
+.hero-tagline {
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 2;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.8s forwards;
+}
+
+.hero-tagline strong {
+  font-weight: 600;
+  color: var(--color-accent-deep);
+}
+
+.hero-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--color-gold);
+  margin: 28px 0;
+  opacity: 0;
+  animation: fadeUp 0.8s 0.9s forwards;
+}
+
+.hero-quals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  opacity: 0;
+  animation: fadeUp 0.8s 1s forwards;
+}
+
+.hero-qual {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--color-text-light);
+  padding: 5px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.hero-visual {
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1.2s 0.6s forwards;
+}
+
+.hero-photo-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-bg-warm);
+}
+
+.hero-photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.hero-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(160deg, var(--color-bg-warm) 0%, #E8DFD4 100%);
+  color: var(--color-text-light);
+  font-size: 0.8rem;
+  gap: 12px;
+}
+
+.hero-photo-placeholder svg {
+  width: 48px;
+  height: 48px;
+  opacity: 0.4;
+}
+
+.hero-accent-box {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 180px;
+  padding: 20px 24px;
+  background: var(--color-bg-dark);
+  border-radius: 6px;
+  z-index: 3;
+}
+
+.hero-accent-box .stat-number {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--color-gold);
+  line-height: 1;
+}
+
+.hero-accent-box .stat-label {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--color-text-inverse);
+  opacity: 0.7;
+  margin-top: 6px;
+  letter-spacing: 0.04em;
+}
+
+/* ============================
+   Section Common
+   ============================ */
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.section-label {
+  font-family: var(--font-body-en);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  line-height: 1.9;
+  max-width: 640px;
+}
+
+/* ============================
+   About
+   ============================ */
+.about {
+  background: var(--color-bg);
+  position: relative;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+  margin-top: 48px;
+}
+
+.about-text {
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 2.1;
+  color: var(--color-text);
+}
+
+.about-text p + p {
+  margin-top: 20px;
+}
+
+.about-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about-highlight-item {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--color-border-light);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.about-highlight-item:first-child {
+  padding-top: 0;
+}
+
+.highlight-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-bg-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-accent);
+  font-size: 1rem;
+}
+
+.highlight-content h4 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.highlight-content p {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  line-height: 1.7;
+}
+
+/* ============================
+   Services
+   ============================ */
+.services {
+  background: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  position: relative;
+  overflow: hidden;
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(184, 155, 106, 0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.services .section-label {
+  color: var(--color-gold);
+}
+
+.services .section-title {
+  color: var(--color-text-inverse);
+}
+
+.services .section-subtitle {
+  color: rgba(250, 248, 245, 0.6);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin-top: 56px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.service-card {
+  padding: clamp(28px, 3vw, 44px);
+  background: var(--color-bg-dark);
+  transition: background 0.4s;
+}
+
+.service-card:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.service-number {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 20px;
+  opacity: 0.6;
+}
+
+.service-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+  color: var(--color-text-inverse);
+}
+
+.service-desc {
+  font-size: 0.8rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: rgba(250, 248, 245, 0.55);
+}
+
+/* ============================
+   Works / Track Record
+   ============================ */
+.works {
+  background: var(--color-bg);
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.work-card {
+  padding: clamp(28px, 3vw, 40px);
+  background: var(--color-bg-warm);
+  border-radius: 8px;
+  border: 1px solid var(--color-border-light);
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 0;
+  background: var(--color-accent);
+  transition: height 0.4s;
+  border-radius: 0 0 3px 0;
+}
+
+.work-card:hover::before {
+  height: 100%;
+}
+
+.work-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+.work-number {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+  letter-spacing: 0.04em;
+}
+
+.work-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+}
+
+.work-desc {
+  font-size: 0.82rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+.work-brands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.work-brand {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  color: var(--color-text-light);
+  background: var(--color-bg);
+}
+
+/* ============================
+   Career Timeline
+   ============================ */
+.career {
+  background: var(--color-bg-warm);
+}
+
+.career-content {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 80px);
+}
+
+.career-column-title {
+  font-family: var(--font-body-en);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 28px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.career-item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.career-year {
+  font-family: var(--font-body-en);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--color-text-light);
+  white-space: nowrap;
+  min-width: 100px;
+  padding-top: 2px;
+}
+
+.career-detail h4 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  letter-spacing: 0.02em;
+}
+
+.career-detail p {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* ============================
+   Strengths
+   ============================ */
+.strengths {
+  background: var(--color-bg);
+}
+
+.strengths-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: 56px;
+  background: var(--color-border-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.strength-card {
+  padding: clamp(24px, 2.5vw, 40px);
+  background: var(--color-bg);
+  text-align: center;
+}
+
+.strength-num {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 300;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.strength-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.strength-desc {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+/* ============================
+   Contact / CTA
+   ============================ */
+.cta {
+  background: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  text-align: center;
+  padding: var(--section-padding) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(196, 100, 58, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta .section-label {
+  color: var(--color-gold);
+}
+
+.cta .section-title {
+  color: var(--color-text-inverse);
+  margin-bottom: 16px;
+}
+
+.cta-text {
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: rgba(250, 248, 245, 0.6);
+  max-width: 520px;
+  margin: 0 auto 40px;
+  line-height: 2;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body-en);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 40px;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+  border: 1px solid var(--color-accent);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-deep);
+  border-color: var(--color-accent-deep);
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--color-text-inverse);
+  border: 1px solid rgba(250, 248, 245, 0.25);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+}
+
+/* ============================
+   Footer
+   ============================ */
+.footer {
+  background: var(--color-bg-dark);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 40px 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-inverse);
+  opacity: 0.5;
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  font-family: var(--font-body-en);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(250, 248, 245, 0.4);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-social a:hover {
+  color: var(--color-gold);
+}
+
+.footer-copy {
+  font-size: 0.68rem;
+  color: rgba(250, 248, 245, 0.25);
+}
+
+/* ============================
+   Chinese Section Toggle
+   ============================ */
+.lang-toggle-section {
+  background: var(--color-bg-warm);
+  text-align: center;
+  padding: 40px 0;
+  border-top: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+.lang-toggle-btn {
+  font-family: var(--font-body-tc);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+  background: none;
+  border: 1px solid var(--color-accent);
+  padding: 12px 36px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.lang-toggle-btn:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.tc-section {
+  display: none;
+  background: var(--color-bg);
+  padding: var(--section-padding) 0;
+}
+
+.tc-section.active {
+  display: block;
+}
+
+.tc-content {
+  font-family: var(--font-body-tc);
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.tc-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.tc-content h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 36px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--color-border-light);
+  color: var(--color-accent-deep);
+}
+
+.tc-intro {
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+  margin-bottom: 28px;
+}
+
+.tc-intro .tagline {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-accent-deep);
+  line-height: 1.7;
+}
+
+.tc-content p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 2;
+  color: var(--color-text);
+  margin-bottom: 16px;
+}
+
+.tc-quals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.tc-qual {
+  font-size: 0.72rem;
+  font-weight: 400;
+  padding: 5px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  color: var(--color-text-light);
+}
+
+.tc-career-item {
+  display: flex;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-border-light);
+  font-size: 0.88rem;
+}
+
+.tc-career-item .year {
+  font-family: var(--font-body-en);
+  font-size: 0.78rem;
+  color: var(--color-text-light);
+  min-width: 120px;
+  flex-shrink: 0;
+}
+
+.tc-career-item .detail {
+  font-weight: 400;
+}
+
+.tc-career-item .detail strong {
+  font-weight: 600;
+}
+
+.tc-career-item .detail span {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  font-weight: 300;
+}
+
+.tc-service-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tc-service-list li {
+  font-size: 0.88rem;
+  font-weight: 400;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.8;
+}
+
+.tc-service-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-gold);
+}
+
+/* ============================
+   Animations
+   ============================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================
+   Responsive
+   ============================ */
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 120px;
+  }
+
+  .hero-visual {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .hero-accent-box {
+    bottom: -12px;
+    left: -12px;
+    width: 150px;
+    padding: 16px 20px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .career-content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .strengths-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-lang {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .strengths-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .tc-career-item {
+    flex-direction: column;
+    gap: 4px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">Shiori Sakamoto</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#works">Works</a></li>
+      <li><a href="#career">Career</a></li>
+      <li><a href="#strengths">Strengths</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#tc-section" class="nav-lang" onclick="toggleTC(event)">中文版</a>
+    <button class="nav-toggle" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <p class="hero-label">Cross-Border Producer &amp; Coordinator</p>
+      <h1 class="hero-name-en">Shiori Sakamoto</h1>
+      <p class="hero-name-ja">坂本 志於里（小里）</p>
+      <p class="hero-tagline">
+        日本と台湾、両市場を理解した<br>
+        <strong>「現場型」企画・コーディネーター</strong>
+      </p>
+      <p class="hero-tagline">
+        観光・商業・エンタメ領域における<br>
+        <strong>クロスボーダー企画を実行へ導くプロデューサー</strong>
+      </p>
+      <div class="hero-divider"></div>
+      <div class="hero-quals">
+        <span class="hero-qual">台湾ゴールドカード保持</span>
+        <span class="hero-qual">旅行業務取扱管理者（総合）</span>
+        <span class="hero-qual">秘書検定 準一級</span>
+        <span class="hero-qual">旅程管理主任者</span>
+        <span class="hero-qual">教員免許（英語・保健体育）</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-photo-frame">
+        <div class="hero-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <circle cx="8.5" cy="8.5" r="1.5"/>
+            <polyline points="21 15 16 10 5 21"/>
+          </svg>
+          <span>プロフィール写真</span>
+        </div>
+      </div>
+      <div class="hero-accent-box">
+        <div class="stat-number">6+</div>
+        <div class="stat-label">Years Freelance</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">About</p>
+      <h2 class="section-title">Profile</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>茨城県つくば市生まれ。東京学芸大学卒業。旅行会社にて教育旅行の企画・アテンド業務に従事した後、人材会社にて海外経験者向け就職支援サービスの立ち上げを担当。その後は観光・エンタメ・教育分野を軸にフリーランスとして企画、営業、PR、プロジェクトマネジメントまで一貫して支援。</p>
+        <p>現在は台湾ゴールドカードビザ（就業金卡）を取得し、日本と台湾の二拠点で活動。台湾を中心とした中華圏市場において、企業・自治体・アーティストの現地コーディネート、イベント企画、PR、マーケティング支援を行っている。</p>
+        <p>日台双方の文化・商習慣・業界構造を理解した「橋渡し役」として、実行力のあるプロジェクト推進を強みとする。</p>
+      </div>
+      <div class="about-highlights reveal">
+        <div class="about-highlight-item">
+          <div class="highlight-icon">🌏</div>
+          <div class="highlight-content">
+            <h4>日台二拠点</h4>
+            <p>東京・台北を拠点に、月次で台湾に渡航。現地の空気感と商習慣を肌で理解した上でプロジェクトを推進。</p>
+          </div>
+        </div>
+        <div class="about-highlight-item">
+          <div class="highlight-icon">🎵</div>
+          <div class="highlight-content">
+            <h4>音楽 × エンタメ</h4>
+            <p>J-POPアーティストの台湾展開、楽曲制作、フェス運営など音楽業界に深いネットワーク。</p>
+          </div>
+        </div>
+        <div class="about-highlight-item">
+          <div class="highlight-icon">🤝</div>
+          <div class="highlight-content">
+            <h4>企画から実行まで</h4>
+            <p>市場調査・PR戦略から現地アテンド・運営まで、ワンストップで対応。</p>
+          </div>
+        </div>
+        <div class="about-highlight-item">
+          <div class="highlight-icon">🎯</div>
+          <div class="highlight-content">
+            <h4>関係構築力</h4>
+            <p>短期案件で終わらせず、次の企画・別案件へと繋がる信頼関係を構築。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">What I Do</h2>
+      <p class="section-subtitle">日本と台湾を中心とした観光・エンタメ市場において、企業・自治体・クリエイター・アーティストを支援。市場理解と現地ネットワークを活かした業務を提供します。</p>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3 class="service-title">台湾市場調査・<br>PR・マーケティング</h3>
+        <p class="service-desc">台湾市場のリサーチから、PR戦略の立案・実行、マーケティング施策の設計まで。現地メディアやKOLとの関係性を活かした実務力。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3 class="service-title">台湾アテンド・<br>現地コーディネート</h3>
+        <p class="service-desc">視察設計、現地調査、アテンドまで一貫対応。台湾向けインバウンドプロモーションや企業・自治体の視察事業もサポート。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3 class="service-title">新規事業の<br>計画策定・実行支援</h3>
+        <p class="service-desc">事業計画の策定からローンチ、運営まで。本田圭佑「4v4」の立ち上げ実績を持つ事業推進力。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <h3 class="service-title">KOL／インフルエンサー<br>キャスティング</h3>
+        <p class="service-desc">日台両市場のKOL・インフルエンサーのキャスティングからディレクションまで。ブランドに最適な人選を。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">05</div>
+        <h3 class="service-title">イベント企画・<br>POP UP運営</h3>
+        <p class="service-desc">日本・台湾でのイベント企画運営、フェス運営、POP UPプロモーション。BEAMS、TENTIAL等の実績。</p>
+      </div>
+      <div class="service-card">
+        <div class="service-number">06</div>
+        <h3 class="service-title">楽曲制作・<br>音楽プロジェクト</h3>
+        <p class="service-desc">J-POPを中心に作詞・作曲・編曲・サウンドプロデュース・劇伴制作まで包括的な音楽制作をサポート。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Works -->
+<section class="section works" id="works">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Track Record</p>
+      <h2 class="section-title">Selected Works</h2>
+      <p class="section-subtitle">観光・エンタメ・商業領域における日台クロスボーダーの主な実績。</p>
+    </div>
+    <div class="works-grid">
+      <div class="work-card reveal">
+        <div class="work-number">01 — Artist</div>
+        <h3 class="work-title">アーティスト台湾アテンド</h3>
+        <p class="work-desc">イベント企画、写真集やMVの撮影、現地タレントとのコラボコーディネート。</p>
+        <div class="work-brands">
+          <span class="work-brand">佐藤健</span>
+          <span class="work-brand">浜崎あゆみ</span>
+          <span class="work-brand">高瀬統也</span>
+          <span class="work-brand">松浦航大</span>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-number">02 — Government</div>
+        <h3 class="work-title">企業・自治体向け台湾視察事業</h3>
+        <p class="work-desc">視察設計、現地調査、アテンドまで一貫対応。台湾向けインバウンドのプロモーション。</p>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-number">03 — Event</div>
+        <h3 class="work-title">イベント企画・運営</h3>
+        <p class="work-desc">日本・台湾でのイベント企画運営。全国小学生足球大会「4v4 JAPAN CUP」の創立・台湾展開。</p>
+        <div class="work-brands">
+          <span class="work-brand">4v4 JAPAN CUP</span>
+          <span class="work-brand">Now Do（本田圭佑）</span>
+        </div>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-number">04 — Festival</div>
+        <h3 class="work-title">フェス運営</h3>
+        <p class="work-desc">企画運営、アーティストブッキング。音楽フェスのプロデュース実績。</p>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-number">05 — KOL</div>
+        <h3 class="work-title">KOL／インフルエンサーキャスティング</h3>
+        <p class="work-desc">日台両市場でのKOLキャスティング、ディレクション支援。</p>
+      </div>
+      <div class="work-card reveal">
+        <div class="work-number">06 — Pop-up</div>
+        <h3 class="work-title">台湾POP UP／プロモーション</h3>
+        <p class="work-desc">ブランドの台湾市場展開におけるPOP UP企画・運営・プロモーション。</p>
+        <div class="work-brands">
+          <span class="work-brand">TENTIAL</span>
+          <span class="work-brand">BEAMS</span>
+          <span class="work-brand">Lumier</span>
+          <span class="work-brand">9090</span>
+          <span class="work-brand">SEVEN x SEVEN</span>
+          <span class="work-brand">ONE OK ROCK</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Career -->
+<section class="section career" id="career">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Career</p>
+      <h2 class="section-title">Professional History</h2>
+    </div>
+    <div class="career-content">
+      <div class="reveal">
+        <div class="career-column-title">Freelance — 6th Year</div>
+        <div class="career-item">
+          <span class="career-year">2025 ~</span>
+          <div class="career-detail">
+            <h4>株式会社 Promo Infinity</h4>
+            <p>海外事業部 統括ディレクター</p>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-year">2021 ~</span>
+          <div class="career-detail">
+            <h4>株式会社 MUSIC FOR MUSIC</h4>
+            <p>音楽制作会社 アジアマーケティング</p>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-year">2023 — 2025</span>
+          <div class="career-detail">
+            <h4>Now Do株式会社</h4>
+            <p>本田圭佑と新規事業「4v4」立ち上げ</p>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-year">2020 — 2022</span>
+          <div class="career-detail">
+            <h4>株式会社WOWOW</h4>
+            <p>事業局事業部 イベント企画</p>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-year">2020 — 2023</span>
+          <div class="career-detail">
+            <h4>株式会社AOI Pro.</h4>
+            <p>社長室 人材戦略部</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="career-column-title">Corporate</div>
+        <div class="career-item">
+          <span class="career-year">2018 — 2020</span>
+          <div class="career-detail">
+            <h4>株式会社Dive</h4>
+            <p>旅人就職支援サービスの立ち上げ</p>
+          </div>
+        </div>
+        <div class="career-item">
+          <span class="career-year">2014 — 2018</span>
+          <div class="career-detail">
+            <h4>日新航空サービス株式会社</h4>
+            <p>教育旅行の企画・営業・添乗業務</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Strengths -->
+<section class="section strengths" id="strengths">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Strengths</p>
+      <h2 class="section-title">Core Advantages</h2>
+    </div>
+    <div class="strengths-grid reveal">
+      <div class="strength-card">
+        <div class="strength-num">01</div>
+        <h3 class="strength-title">音楽業界の<br>専門性とネットワーク</h3>
+        <p class="strength-desc">日台両方での音楽業界における専門性と人脈。アーティスト展開に必要な現地リソースを保有。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">02</div>
+        <h3 class="strength-title">PR・マーケティング<br>実務力</h3>
+        <p class="strength-desc">観光・エンタメ・教育など多業界で培ったノウハウ。国内外メディアへの露出や話題化の設計。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">03</div>
+        <h3 class="strength-title">事業視点の<br>プロジェクト推進力</h3>
+        <p class="strength-desc">戦略設計から実行までのリーダーシップ。新規事業の立ち上げから運営まで一貫対応。</p>
+      </div>
+      <div class="strength-card">
+        <div class="strength-num">04</div>
+        <h3 class="strength-title">現地での<br>関係構築力</h3>
+        <p class="strength-desc">短期案件で終わらせず、次の企画・別案件へと繋がる関係性を構築。立場の異なる関係者間の信頼調整。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chinese Section Toggle -->
+<div class="lang-toggle-section">
+  <button class="lang-toggle-btn" onclick="toggleTC(event)">🇹🇼 查看中文版 View in Traditional Chinese</button>
+</div>
+
+<!-- Traditional Chinese Section -->
+<section class="tc-section" id="tc-section">
+  <div class="container">
+    <div class="tc-content">
+      <p class="section-label" style="color: var(--color-accent);">中文版 Profile</p>
+      <h2>坂本 志於里（Shiori Sakamoto）小里</h2>
+
+      <div class="tc-intro">
+        <p class="tagline">⭐ 觀光、商業、娛樂之跨國企畫推動與執行製作</p>
+        <p class="tagline">⭐ 熟悉日本與臺灣市場之現場協調與公關</p>
+      </div>
+
+      <div class="tc-quals">
+        <span class="tc-qual">臺灣就業金卡（Gold Card）</span>
+        <span class="tc-qual">日本秘書技能檢定 準一級</span>
+        <span class="tc-qual">日本旅行業務管理者國家考試</span>
+        <span class="tc-qual">日本行程管理線控主任國考</span>
+        <span class="tc-qual">教師一級證照（英語・體育）</span>
+      </div>
+
+      <h3>個人簡介</h3>
+      <p>茨城筑波人，畢業於東京學藝大學。曾於旅行社擔任企畫與出團領隊，嗣後，於人力資源公司負責海外經驗人才就業服務。現為觀光、娛樂、教育領域之自由接案者，提供從企畫、業務、PR 到專案管理的一條龍服務。</p>
+      <p>持有臺灣就業金卡，活躍於臺北與東京兩地，熱愛臺灣，深諳日臺文化、商業習慣與產業結構之差異，戮力擔任兩地橋樑，具超強的專案執行力。</p>
+
+      <h3>經歷：自由工作者 6 年</h3>
+      <div class="tc-career-item">
+        <span class="year">2025 年～</span>
+        <div class="detail"><strong>株式會社 Promo Infinity</strong><span>廣告代理公司 海外事業部總監</span></div>
+      </div>
+      <div class="tc-career-item">
+        <span class="year">2021 年～</span>
+        <div class="detail"><strong>株式會社 MUSIC FOR MUSIC</strong><span>音樂製作公司 亞洲行銷部門</span></div>
+      </div>
+      <div class="tc-career-item">
+        <span class="year">2023 — 2025 年</span>
+        <div class="detail"><strong>Now Do 株式會社</strong><span>與前日本國足隊長本田圭佑共同創立「4v4」足球</span></div>
+      </div>
+      <div class="tc-career-item">
+        <span class="year">2020 — 2022 年</span>
+        <div class="detail"><strong>株式會社 WOWOW</strong><span>事業局事業部</span></div>
+      </div>
+      <div class="tc-career-item">
+        <span class="year">2020 — 2023 年</span>
+        <div class="detail"><strong>株式會社 AOI Pro.</strong><span>社長室 人才戰略部</span></div>
+      </div>
+
+      <h3>經歷：企業任職</h3>
+      <div class="tc-career-item">
+        <span class="year">2018 — 2020 年</span>
+        <div class="detail"><strong>株式會社 Dive</strong><span>海外經驗人才就業服務的新部門</span></div>
+      </div>
+      <div class="tc-career-item">
+        <span class="year">2014 — 2018 年</span>
+        <div class="detail"><strong>Nissin Travel Service Co.Ltd.</strong><span>教育旅行之行程規劃、業務開發及領隊</span></div>
+      </div>
+
+      <h3>業務內容</h3>
+      <ul class="tc-service-list">
+        <li>市調／研究／PR／公關之企畫與執行</li>
+        <li>臺灣隨行支援／在地協調</li>
+        <li>新事業之事業計畫制定與執行支援</li>
+        <li>KOL／網紅經紀</li>
+        <li>音樂和樂曲製作專案</li>
+      </ul>
+
+      <h3>優勢</h3>
+      <p><strong>1. 日本音樂產業之人脈網與在臺拓展經驗</strong></p>
+      <p><strong>2. PR／行銷實務</strong> — 長年在觀光、娛樂、教育等多元產業累積經驗。國內外媒體曝光與話題操作。</p>
+      <p><strong>3. 新創事業之策略設計到執行的領導力</strong></p>
+      <p><strong>4. 累積雙方信任之橋接能力</strong> — 向臺方清晰傳達日方真實意向與溫度感。連綿衍生後續合作專案，不止步於短期效果。協調網紅／藝人、地方政府、企業、製作團隊等不同立場之信任關係。</p>
+    </div>
+  </div>
+</section>
+
+<!-- Contact CTA -->
+<section class="section cta" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="cta-text">日台クロスボーダーの企画・コーディネートに関するご相談は、お気軽にお問い合わせください。</p>
+      <div class="cta-buttons">
+        <a href="https://www.instagram.com/shiori.skmt/" target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="m16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          Instagram
+        </a>
+        <a href="https://www.threads.com/@shiori.skmt" target="_blank" rel="noopener" class="btn btn-outline">
+          Threads
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo">Shiori Sakamoto</span>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/shiori.skmt/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.threads.com/@shiori.skmt" target="_blank" rel="noopener">Threads</a>
+      </div>
+      <span class="footer-copy">&copy; 2026 Shiori Sakamoto. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Scroll reveal
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+revealElements.forEach(el => revealObserver.observe(el));
+
+// Toggle Traditional Chinese section
+function toggleTC(e) {
+  e.preventDefault();
+  const section = document.getElementById('tc-section');
+  section.classList.toggle('active');
+  if (section.classList.contains('active')) {
+    setTimeout(() => {
+      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
+  }
+}
+
+// Mobile menu (simplified)
+function toggleMobileMenu() {
+  const links = document.querySelector('.nav-links');
+  if (links.style.display === 'flex') {
+    links.style.display = 'none';
+  } else {
+    links.style.display = 'flex';
+    links.style.flexDirection = 'column';
+    links.style.position = 'absolute';
+    links.style.top = '100%';
+    links.style.left = '0';
+    links.style.right = '0';
+    links.style.background = 'rgba(250, 248, 245, 0.98)';
+    links.style.padding = '20px';
+    links.style.gap = '16px';
+    links.style.borderBottom = '1px solid var(--color-border-light)';
+  }
+}
+</script>
+
+</body>
+</html>
