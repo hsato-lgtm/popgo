@@ -1953,6 +1953,27 @@ function switchLang(lang) {
   window.scrollTo({ top: document.getElementById('hero').offsetTop, behavior: 'smooth' });
 }
 
+// Nav link click — jump to correct section based on current language
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const hash = this.getAttribute('href').replace('#', '');
+    const activeLang = document.querySelector('.lang-tab.active');
+    const lang = activeLang ? activeLang.dataset.lang : 'tc';
+    if (lang === 'tc' && hash !== 'contact') {
+      const tcTarget = document.getElementById(hash + '-tc');
+      if (tcTarget) {
+        e.preventDefault();
+        tcTarget.scrollIntoView({ behavior: 'smooth' });
+        // Close mobile menu
+        document.querySelector('.nav-links').style.display = '';
+      }
+    } else {
+      // Close mobile menu on click for JA too
+      document.querySelector('.nav-links').style.display = '';
+    }
+  });
+});
+
 // Mobile menu (simplified)
 function toggleMobileMenu() {
   const links = document.querySelector('.nav-links');
